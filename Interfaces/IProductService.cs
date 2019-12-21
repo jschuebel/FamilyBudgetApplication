@@ -9,15 +9,15 @@ namespace FamilyBudget.Application.Interface
         int Count {get;}
 
         //ProductVM NewPerson(string firstName,  string lastName, string address);
-        //ProductVM CreatePerson(ProductVM newobj);
+        ProductVM Create(ProductVM newobj);
         //Read //GET
-        //ProductVM FindById(int id);
+        ProductVM FindById(int ProductID);
         //Person FindPersonByIdIncludeOrders(int id);
         IEnumerable<ProductVM> GetAll(string pagingInfo);
         //Update //PUT
-        //ProductVM UpdatePerson(ProductVM updobj);
+        ProductVM Update(ProductVM updobj);
         
         //Delete //DELETE
-        //bool DeletePerson(int id);        
+        bool Delete(int ProductID);        
     }
 }

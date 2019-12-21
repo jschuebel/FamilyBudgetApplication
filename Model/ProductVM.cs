@@ -10,7 +10,13 @@ namespace FamilyBudget.Application.Model
         public ProductVM(Product p) {
             this.ProductID=p.ProductID;
             this.Title=p.Title;
-            this.Cost=p.Cost!=null? p.Cost/100.0:null;
+            this.Cost=p.Cost;
+            this.Count=p.Count;
+        }
+        public void UpdateProduct(Product p) {
+            this.ProductID=p.ProductID;
+            this.Title=p.Title;
+            this.Cost=p.Cost;
             this.Count=p.Count;
         }
     }

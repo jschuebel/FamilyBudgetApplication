@@ -32,7 +32,7 @@ namespace FamilyBudget.Application.Services
                 var products = _prodRepo.ReadAll();
                 var prs = pagingInfo.ParseSearchRequest();
 
-                  if (prs.Page>0) prs.Page--;
+                  //if (prs.Page>0) prs.Page--;
                   string filtering=prs.GetFiltering<ProductVM>();
                   var sorting = prs.GetSorting();
                   IQueryable<PurchaseVM> query = from pu in purchases.Where(filtering).OrderBy(sorting)

@@ -50,6 +50,36 @@ namespace FamilyBudget.Application.Services
             }
             return results;
         }
+        public ProductVM FindById(int ProductID)
+        {
+            var prd = _Repo.ReadAll().Where(x => x.ProductID==ProductID).First();
+            return new ProductVM(prd);
+        }
+
+
+        public ProductVM Create(ProductVM obj)
+        {
+           var prd = _Repo.Create(obj);
+            return new ProductVM(prd);
+        }
+
+        public ProductVM Update(ProductVM obj)
+        {
+            //if there is a Date of Birth event, update it
+            // var dob = _Repo.ReadAll().Where(x=> x.ProductID=obj.ProductID).FirstOrDefault();
+            // if (dob!=null) {
+            //     dob.Date=cust.DateOfBirth;
+            //     _eventRepo.Update(dob);
+            // }
+            obj = (ProductVM)_Repo.Update(obj);
+            return obj;
+        }
+
+        public bool Delete(int ProductID)
+        {
+            return _Repo.Delete(ProductID);
+        }
+
 
     }
 }

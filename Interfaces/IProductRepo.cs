@@ -11,7 +11,6 @@ namespace FamilyBudget.Application.Interface
         //No Id when enter, but Id when exits
         Product Create(Product evt);
         //Read Data
-        Product GetById(int id);
         IQueryable<Product> ReadAll();
         //Update Data
         Product Update(Product evt);

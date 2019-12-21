@@ -11,7 +11,6 @@ namespace FamilyBudget.Application.Interface
         //No Id when enter, but Id when exits
         Purchase Create(Purchase newobj);
         //Read Data
-        Purchase GetById(int id);
         IQueryable<Purchase> ReadAll();
         //Update Data
         Purchase Update(Purchase evt);

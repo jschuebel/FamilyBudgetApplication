@@ -10,12 +10,12 @@ namespace FamilyBudget.Application.Model
             this.PurchaseID=pu.PurchaseID;
             this.ProductID=pu.ProductID;
             this.Count=pu.Count;
-            this.CostOverride=pu.CostOverride!=null? pu.CostOverride/100.0:null;
+            this.CostOverride=pu.CostOverride;
             this.PurchaseDate=pu.PurchaseDate;
 
             if (pr!=null) {
                 this.ProductTitle = pr.Title;
-                this.UnitCost = pr.Cost!=null? pr.Cost/100.0:null;
+                this.UnitCost = pr.Cost;
                 this.UnitCount= pr.Count;
             }
 
