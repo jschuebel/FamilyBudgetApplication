@@ -9,12 +9,11 @@ namespace FamilyBudget.Application.Interface
     {
         //Create Data
         //No Id when enter, but Id when exits
-        CategoryXref Create(CategoryXref evt);
+        CategoryXref Add(CategoryXref obj);
+        void Save();
         //Read Data
-        CategoryXref GetById(int id);
         IQueryable<CategoryXref> ReadAll();
         //Update Data
-        CategoryXref Update(CategoryXref evt);
         //Delete Data
         bool Delete(int id);
         

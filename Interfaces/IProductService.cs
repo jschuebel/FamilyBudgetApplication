@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+
 using FamilyBudget.Application.Model;
 
 namespace FamilyBudget.Application.Interface
@@ -18,6 +20,6 @@ namespace FamilyBudget.Application.Interface
         ProductVM Update(ProductVM updobj);
         
         //Delete //DELETE
-        bool Delete(int ProductID);        
+        Task<bool>  Delete(int ProductID);        
     }
 }

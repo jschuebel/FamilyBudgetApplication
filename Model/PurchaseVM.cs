@@ -22,7 +22,7 @@ namespace FamilyBudget.Application.Model
             if (this.CostOverride!=null)
                 this.Cost=this.CostOverride.Value;
             else {
-                if (pr!=null) {
+                if (pr!=null && this.UnitCost!=null) {
                     this.Cost = this.Count * this.UnitCost.Value;
                 }
             }

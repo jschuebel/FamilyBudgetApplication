@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+
 using FamilyBudget.Application.Model;
 
 namespace FamilyBudget.Application.Interface
@@ -8,16 +10,14 @@ namespace FamilyBudget.Application.Interface
     {
         int Count {get;}
 
-        //CategoryVM NewPerson(string firstName,  string lastName, string address);
-        //CategoryVM CreatePerson(CategoryVM newobj);
+        CategoryVM Create(CategoryVM newobj);
         //Read //GET
-        //CategoryVM FindById(int id);
-        //Person FindPersonByIdIncludeOrders(int id);
+        CategoryVM FindById(int id);
         IEnumerable<CategoryVM> GetAll(string pagingInfo);
         //Update //PUT
-        //CategoryVM UpdatePerson(CategoryVM updobj);
+        CategoryVM Update(CategoryVM updobj);
         
         //Delete //DELETE
-        //bool DeletePerson(int id);        
+        Task<bool> Delete(int id);        
     }
 }

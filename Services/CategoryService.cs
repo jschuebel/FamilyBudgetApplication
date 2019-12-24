@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 using System.Linq.Dynamic.Core;
 
@@ -50,6 +51,45 @@ namespace FamilyBudget.Application.Services
             }
             return results;
         }
+
+
+        public CategoryVM FindById(int ID)
+        {
+            var prd = _Repo.ReadAll().Where(x => x.CategoryID==ID).First();
+            return new CategoryVM(prd);
+        }
+
+
+        public CategoryVM Create(CategoryVM obj)
+        {
+           var prd = _Repo.Create(obj);
+            return new CategoryVM(prd);
+        }
+
+        public CategoryVM Update(CategoryVM obj)
+        {
+            //if there is a Date of Birth event, update it
+            // var dob = _Repo.ReadAll().Where(x=> x.ProductID=obj.ProductID).FirstOrDefault();
+            // if (dob!=null) {
+            //     dob.Date=cust.DateOfBirth;
+            //     _eventRepo.Update(dob);
+            // }
+            obj = (CategoryVM)_Repo.Update(obj);
+            return obj;
+        }
+
+        public Task<bool> Delete(int ID)
+        {
+            //Func<bool> function = new Func<bool>(() => _Repo.Delete(ProductID));
+            //return Task.Run<bool>(function);
+             return Task.Run(() => 
+             {
+                 return _Repo.Delete(ID);
+             });
+            //return Task.FromResult<bool>(_Repo.Delete(ProductID));
+        }
+
+
 
     }
 }

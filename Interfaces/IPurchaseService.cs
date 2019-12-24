@@ -1,4 +1,6 @@
 using System;
+using System.Threading.Tasks;
+
 using System.Collections.Generic;
 using FamilyBudget.Application.Model;
 
@@ -7,17 +9,14 @@ namespace FamilyBudget.Application.Interface
     public interface IPurchaseService
     {
         int Count {get;}
-
-        //ProductVM NewPerson(string firstName,  string lastName, string address);
-        //ProductVM CreatePerson(ProductVM newobj);
+        PurchaseVM Create(PurchaseVM newobj);
         //Read //GET
-        //ProductVM FindById(int id);
-        //Person FindPersonByIdIncludeOrders(int id);
+        PurchaseVM FindById(int id);
         IEnumerable<PurchaseVM> GetAll(string pagingInfo);
         //Update //PUT
-        //ProductVM UpdatePerson(ProductVM updobj);
+        PurchaseVM Update(PurchaseVM updobj);
         
         //Delete //DELETE
-        //bool DeletePerson(int id);        
+        Task<bool> Delete(int id);        
     }
 }

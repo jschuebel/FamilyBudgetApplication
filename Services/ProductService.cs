@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 using System.Linq.Dynamic.Core;
 
@@ -75,9 +76,15 @@ namespace FamilyBudget.Application.Services
             return obj;
         }
 
-        public bool Delete(int ProductID)
+        public Task<bool> Delete(int ProductID)
         {
-            return _Repo.Delete(ProductID);
+            //Func<bool> function = new Func<bool>(() => _Repo.Delete(ProductID));
+            //return Task.Run<bool>(function);
+             return Task.Run(() => 
+             {
+                 return _Repo.Delete(ProductID);
+             });
+            //return Task.FromResult<bool>(_Repo.Delete(ProductID));
         }
 
 

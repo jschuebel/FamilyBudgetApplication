@@ -15,7 +15,7 @@ namespace FamilyBudget.Application.Interface
         //Person FindPersonByIdIncludeOrders(int id);
         IEnumerable<CategoryXrefVM> GetAll(string pagingInfo);
         //Update //PUT
-        //CategoryXrefVM UpdatePerson(CategoryXrefVM updobj);
+        void Update(int ProductID, CategoryVM [] updobj);
         
         //Delete //DELETE
         //bool DeletePerson(int id);        

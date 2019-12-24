@@ -17,6 +17,8 @@ namespace FamilyBudget.Application
             services.AddScoped<Interface.ICategoryService, Services.CategoryService>();
             services.AddScoped<Interface.IProductService, Services.ProductService>();
             services.AddScoped<Interface.IPurchaseService, Services.PurchaseService>();
+            services.AddScoped<Interface.IReportService, Services.ReportService>();
+            
  
             return services;
         }

@@ -7,6 +7,8 @@ using System.Linq.Dynamic.Core;
 using FamilyBudget.Application.Interface;
 using FamilyBudget.Application.Model;
 
+using System.Threading.Tasks;
+
 namespace FamilyBudget.Application.Services
 {
     public class PurchaseService : IPurchaseService
@@ -57,6 +59,41 @@ namespace FamilyBudget.Application.Services
             }
             return results;
         }
+
+
+        public PurchaseVM FindById(int PurchaseID)
+        {
+            var prd = _purchRepo.ReadAll().Where(x => x.PurchaseID==PurchaseID).First();
+            var prod = _prodRepo.ReadAll().Where(x => x.ProductID==prd.ProductID).First();
+            return new PurchaseVM(prd, prod);
+        }
+
+
+        public PurchaseVM Create(PurchaseVM obj)
+        {
+           var prd = _purchRepo.Create(obj);
+            var prod = _prodRepo.ReadAll().Where(x => x.ProductID==prd.ProductID).First();
+            return new PurchaseVM(prd, prod);
+        }
+
+        public PurchaseVM Update(PurchaseVM obj)
+        {
+            //if there is a Date of Birth event, update it
+            // var dob = _Repo.ReadAll().Where(x=> x.ProductID=obj.ProductID).FirstOrDefault();
+            // if (dob!=null) {
+            //     dob.Date=cust.DateOfBirth;
+            //     _eventRepo.Update(dob);
+            // }
+            obj = (PurchaseVM)_purchRepo.Update(obj);
+            return obj;
+        }
+
+        public Task<bool> Delete(int ProductID)
+        {
+            return Task.FromResult<bool>(_purchRepo.Delete(ProductID));
+        }
+
+
 
     }
 }

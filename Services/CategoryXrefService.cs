@@ -51,5 +51,21 @@ namespace FamilyBudget.Application.Services
             return results;
         }
 
+
+
+        public void Update(int ProductID, CategoryVM [] updobj)
+        {
+           _Repo.Delete(ProductID);
+
+           foreach(var c in updobj) {
+            var cx = new CategoryXrefVM();
+            cx.ProductID=ProductID;
+            cx.CategoryID=c.CategoryID;
+
+            var prd = _Repo.Add(cx);
+           }
+           _Repo.Save();
+        }
+
     }
 }
